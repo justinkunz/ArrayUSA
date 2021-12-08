@@ -2,7 +2,7 @@
   "name": "unitedstatesofamerica",
   "version": "0.1.0",
   "description": "Extend array methods with the power of the USA",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "types": "types.d.ts",
   "repository": {
     "type": "git",
@@ -10,7 +10,9 @@
   },
   "scripts": {
     "sync": "node scripts/syncMethods.js",
-    "buildTests": "node scripts/buildTests.js"
+    "bump:major": "node scripts/bumpVersion.js major",
+    "bump:minor": "node scripts/bumpVersion.js minor",
+    "bump:patch": "node scripts/bumpVersion.js patch"
   },
   "keywords": [
     "array",

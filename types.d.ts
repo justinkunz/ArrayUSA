@@ -44,7 +44,7 @@ declare module 'unitedstatesofamerica' {
   }
 
   const arrayUSACaller: {
-    (arr: any[]): ArrayBuddyMethods;
+    (arr: any[]): ArrayUSAMethods;
     exposeProtos(): void;
     withLength: (length: number) => ArrayUSAMethods;
   };
