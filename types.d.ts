@@ -34,6 +34,7 @@ declare module 'unitedstatesofamerica' {
     replace(oldVal: any, newVal: any): ArrayUSA<any>;
     shuffle(): ArrayUSA<any>;
     sum(): number;
+    toArray(): any[];
     toNum(): number;
     toObject(callback: CallbackFn<ToObjectShape>): GenericObject;
     toStr(): ArrayUSA<string>;
