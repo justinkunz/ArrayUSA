@@ -162,7 +162,7 @@ const shuffled = unshuffled.shuffle(); // Expected: array in randomized order, l
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const unshuffled = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const shuffled = unshuffled.shuffle(); // Expected: array in randomized order, like [8,3,4,2,10,5,1,9,6,7]
@@ -203,14 +203,14 @@ const uniqueUsers = users.withoutDuplicates(); // Expected: ["Justin", "Jack", "
 ```js
 const usa = require('unitedstatesofamerica');
 
-const logins = usa('Justin', 'Justin', 'Jack', 'Amanda', 'Mary', 'Amanda');
+const logins = usa(['Justin', 'Justin', 'Jack', 'Amanda', 'Mary', 'Amanda']);
 const duplicateLogins = logins.onlyDuplicates(); // Expected: ["Justin", "Amanda"]
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const logins = ['Justin', 'Justin', 'Jack', 'Amanda', 'Mary', 'Amanda'];
 const duplicateLogins = logins.onlyDuplicates(); // Expected: ["Justin", "Amanda"]
@@ -238,7 +238,7 @@ const batched = usa(unbatched).batch(2); // Expected: [["Justin", "Amanda"], [ "
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const unbatched = ['Justin', 'Amanda', 'Mary', 'Kelly', 'Jonathan', 'Tom'];
 const batched = unbatched.batch(2); // Expected: [["Justin", "Amanda"], [ "Mary", "Kelly"], ["Jonathan", "Tom"]]
@@ -255,14 +255,14 @@ const batched = unbatched.batch(2); // Expected: [["Justin", "Amanda"], [ "Mary"
 ```js
 const usa = require('unitedstatesofamerica');
 
-const words = usa('foo', 'bar', 'baz');
+const words = usa(['foo', 'bar', 'baz']);
 const wordsCopy = words.copy(); // Expected: ["foo", "bar", "baz"]
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const words = ['foo', 'bar', 'baz'];
 const wordsCopy = words.copy(); // Expected: ["foo", "bar", "baz"]
@@ -279,7 +279,7 @@ const wordsCopy = words.copy(); // Expected: ["foo", "bar", "baz"]
 ```js
 const usa = require('unitedstatesofamerica');
 
-const original = usa(
+const original = usa([
   { foo: 'bar', foobar: ['foo', 'bar'] },
   { bar: 'foo', barfoo: ['bar', 'foo'] },
   { foobar: ['foo', 'bar'] },
@@ -287,8 +287,8 @@ const original = usa(
   20,
   'Why does this array have so many types',
   Symbol(),
-  'Oh yeah, to show you how to it can make a deep copy of any type'
-);
+  'Oh yeah, to show you how to it can make a deep copy of any type',
+]);
 
 const copied = original.deepCopy(); // Makes a deep copy
 
@@ -301,7 +301,7 @@ console.log(original[0].foo === copied[0].foo); // Expected: false
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const original = [
   { foo: 'bar', foobar: ['foo', 'bar'] },
@@ -333,14 +333,14 @@ console.log(original[0].foo === copied[0].foo); // Expected: false
 ```js
 const usa = require('unitedstatesofamerica');
 
-const words = usa('foo', 'bar', 'baz');
+const words = usa(['foo', 'bar', 'baz']);
 words.random(); // Expected Example: "bar"
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const words = ['foo', 'bar', 'baz'];
 words.random(); // Expected Example: "bar"
@@ -357,14 +357,14 @@ words.random(); // Expected Example: "bar"
 ```js
 const usa = require('unitedstatesofamerica');
 
-const words = usa('foo', 'bar', 'baz');
+const words = usa(['foo', 'bar', 'baz']);
 words.randomIndex(); // Expected Example: 2
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const words = ['foo', 'bar', 'baz'];
 words.randomIndex(); // Expected Example: 2
@@ -385,14 +385,14 @@ words.randomIndex(); // Expected Example: 2
 ```js
 const usa = require('unitedstatesofamerica');
 
-const words = usa('foo', 'bar', 'foo', 'foo', 'baz');
+const words = usa(['foo', 'bar', 'foo', 'foo', 'baz']);
 const fooCount = words.countOf('foo'); // Expected: 3
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const words = ['foo', 'bar', 'foo', 'foo', 'baz'];
 const fooCount = words.countOf('foo'); // Expected: 3
@@ -416,14 +416,14 @@ const fooCount = words.countOf('foo'); // Expected: 3
 ```js
 const usa = require('unitedstatesofamerica');
 
-const grades = usa(99, 93, 60, 70, 100, 80, 78, 100, 98, 94);
+const grades = usa([99, 93, 60, 70, 100, 80, 78, 100, 98, 94]);
 const over90 = grades.countIf((grade) => grade >= 90); // Expected: 6
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const grades = [99, 93, 60, 70, 100, 80, 78, 100, 98, 94];
 const over90 = grades.countIf((grade) => grade >= 90); // Expected: 6
@@ -440,14 +440,14 @@ const over90 = grades.countIf((grade) => grade >= 90); // Expected: 6
 ```js
 const usa = require('unitedstatesofamerica');
 
-const users = usa('Jack', 'Jill', 'Bob', 'Joe');
+const users = usa(['Jack', 'Jill', 'Bob', 'Joe']);
 const lastUser = users.last(); // Expected: Joe
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const users = ['Jack', 'Jill', 'Bob', 'Joe'];
 const lastUser = users.last(); // Expected: Joe
@@ -464,14 +464,14 @@ const lastUser = users.last(); // Expected: Joe
 ```js
 const usa = require('unitedstatesofamerica');
 
-const grades = usa(99, 93, 60, 70, 100, 80, 78, 100, 98, 94);
+const grades = usa([99, 93, 60, 70, 100, 80, 78, 100, 98, 94]);
 const worstToBest = grades.ascending(); // Expected: [60, 70, 78, 80, 93,94, 98, 99, 100, 100]
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const grades = [99, 93, 60, 70, 100, 80, 78, 100, 98, 94];
 const worstToBest = grades.ascending(); // Expected: [60, 70, 78, 80, 93,94, 98, 99, 100, 100]
@@ -488,14 +488,14 @@ const worstToBest = grades.ascending(); // Expected: [60, 70, 78, 80, 93,94, 98,
 ```js
 const usa = require('unitedstatesofamerica');
 
-const grades = usa(99, 93, 60, 70, 100, 80, 78, 100, 98, 94);
+const grades = usa([99, 93, 60, 70, 100, 80, 78, 100, 98, 94]);
 const bestToWorst = grades.descending(); // Expected: [100, 100, 99, 98, 94, 93, 80, 78, 70, 60]
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const grades = [99, 93, 60, 70, 100, 80, 78, 100, 98, 94];
 const bestToWorst = grades.descending(); // Expected: [100, 100, 99, 98, 94, 93, 80, 78, 70, 60]
@@ -512,8 +512,8 @@ const bestToWorst = grades.descending(); // Expected: [100, 100, 99, 98, 94, 93,
 ```js
 const usa = require('unitedstatesofamerica');
 
-const arr1 = usa();
-const arr2 = usa('foo', 'bar', 'baz');
+const arr1 = usa([]);
+const arr2 = usa(['foo', 'bar', 'baz']);
 
 console.log(arr1.isEmpty()); // Expected: true
 console.log(arr2.isEmpty()); // Expected: false
@@ -526,7 +526,7 @@ console.log(arr1.isEmpty()); // Expected: false
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const arr1 = [];
 const arr2 = ['foo', 'bar', 'baz'];
@@ -550,7 +550,7 @@ console.log(arr2.isEmpty()); // Expected: false
 ```js
 const usa = require('unitedstatesofamerica');
 
-const users = usa(
+const users = usa([
   {
     firstName: 'Jon',
     lastName: 'Smith',
@@ -565,8 +565,8 @@ const users = usa(
     firstName: 'Elon',
     lastName: 'Musk',
     email: 'elon@tesla.com',
-  }
-);
+  },
+]);
 
 const person = users.partialMatch({ email: 'jdoe@ymail.com' });
 // Expected:
@@ -580,7 +580,7 @@ const person = users.partialMatch({ email: 'jdoe@ymail.com' });
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const users = [
   {
@@ -624,7 +624,7 @@ const person = users.partialMatch({ email: 'jdoe@ymail.com' });
 ```js
 const usa = require('unitedstatesofamerica');
 
-const users = usa(
+const users = usa([
   {
     firstName: 'Jon',
     lastName: 'Smith',
@@ -639,8 +639,8 @@ const users = usa(
     firstName: 'Elon',
     lastName: 'Musk',
     email: 'elon@tesla.com',
-  }
-);
+  },
+]);
 
 const person = users.partialMatchIndex({ email: 'jdoe@ymail.com' }); // Expected: 1
 ```
@@ -648,7 +648,7 @@ const person = users.partialMatchIndex({ email: 'jdoe@ymail.com' }); // Expected
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const users = [
   {
@@ -716,35 +716,11 @@ const cleaned = usa(arr1).withoutFalsyValues(); // Expected: [ 3, 4, 'foo', 'bar
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const arr1 = [3, 4, 'foo', 'bar', null, 'baz', false, 'foobar', NaN, undefined, ''];
 
 const cleaned = arr1.withoutFalsyValues(); // Expected: [ 3, 4, 'foo', 'bar', 'baz', 'foobar']
-```
-
-### Insert At
-
-`.insertAt()` inserts item(s) after a specified index in array.
-
-##### Examples
-
-###### Array USA Wrapper
-
-```js
-const usa = require('unitedstatesofamerica');
-
-const users = usa('Jon', 'Jack', 'Jill');
-users.insertAt(1, 'Justin', 'Joe'); // Expected: ['Jon', 'Jack', 'Justin', 'Joe', 'Jill']
-```
-
-###### Extending Prototype
-
-```js
-require('unitedstatesofamerica').protos();
-
-const users = ['Jon', 'Jack', 'Jill'];
-users.insertAt(1, 'Justin', 'Joe'); // Expected: ['Jon', 'Jack', 'Justin', 'Joe', 'Jill']
 ```
 
 ### Sum
@@ -758,14 +734,14 @@ users.insertAt(1, 'Justin', 'Joe'); // Expected: ['Jon', 'Jack', 'Justin', 'Joe'
 ```js
 const usa = require('unitedstatesofamerica');
 
-const nums = usa(10, 20, 30);
+const nums = usa([10, 20, 30]);
 nums.sum(); // Expected: 60
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const nums = [10, 20, 30];
 nums.sum(); // Expected: 60
@@ -782,14 +758,14 @@ nums.sum(); // Expected: 60
 ```js
 const usa = require('unitedstatesofamerica');
 
-const nums = usa(10, 20, 30);
+const nums = usa([10, 20, 30]);
 nums.difference(); // Expected: -40
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const nums = [10, 20, 30];
 nums.difference(); // Expected: -40
@@ -806,14 +782,14 @@ nums.difference(); // Expected: -40
 ```js
 const usa = require('unitedstatesofamerica');
 
-const nums = usa(10, 20, 30);
+const nums = usa([10, 20, 30]);
 nums.product(); // Expected: 6000
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const nums = [10, 20, 30];
 nums.product(); // Expected: 6000
@@ -828,14 +804,14 @@ nums.product(); // Expected: 6000
 ```js
 const usa = require('unitedstatesofamerica');
 
-const nums = usa(10, 20, 30);
+const nums = usa([10, 20, 30]);
 nums.quotient(); // Expected: 0.016666666666666666
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const nums = [10, 20, 30];
 nums.quotient(); // Expected: 0.016666666666666666
@@ -852,14 +828,14 @@ nums.quotient(); // Expected: 0.016666666666666666
 ```js
 const usa = require('unitedstatesofamerica');
 
-const projectGrades = usa(90, 100, 80, 100, 100);
+const projectGrades = usa([90, 100, 80, 100, 100]);
 const averageGrage = projectGrades.average(); // Expected: 94
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const projectGrades = [90, 100, 80, 100, 100];
 const averageGrage = projectGrades.average(); // Expected: 94
@@ -880,14 +856,14 @@ const averageGrage = projectGrades.average(); // Expected: 94
 ```js
 const usa = require('unitedstatesofamerica');
 
-const nums = usa(10, 20, 30, 50, 100);
+const nums = usa([10, 20, 30, 50, 100]);
 nums.median(); // Expected: 30
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const nums = [10, 20, 30, 50, 100];
 nums.median(); // Expected: 30
@@ -904,14 +880,14 @@ nums.median(); // Expected: 30
 ```js
 const usa = require('unitedstatesofamerica');
 
-const nums = usa(10, 20, 30, 50, 100);
+const nums = usa([10, 20, 30, 50, 100]);
 nums.mode(); // Expected: 20
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const nums = [10, 20, 20, 30, 50, 100];
 nums.mode(); // Expected: 20
@@ -933,14 +909,14 @@ nums.mode(); // Expected: 20
 ```js
 const usa = require('unitedstatesofamerica');
 
-const arr = usa('foo', 'bar', 'foobar', 'bar', 'foo');
+const arr = usa(['foo', 'bar', 'foobar', 'bar', 'foo']);
 const noFoo = arr.replace('foo', 'baz'); // Expected: ["baz", "bar", "foobar", "bar", "baz"]
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const arr = ['foo', 'bar', 'foobar', 'bar', 'foo'];
 const noFoo = arr.replace('foo', 'baz'); // Expected: ["baz", "bar", "foobar", "bar", "baz"]
@@ -987,7 +963,7 @@ const nestedArrsOnly = mixed.filterType('array'); // [["nested", 8], [1,2,3]]
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const mixed = [1, 4, 't', ['nested', 8], { foo: 'bar' }, { baz: false }, [1, 2, 3], true, ''];
 
@@ -1009,16 +985,16 @@ const nestedArrsOnly = mixed.filterType('array'); // [["nested", 8], [1,2,3]]
 ```js
 const usa = require('unitedstatesofamerica');
 
-const mixed = usa(1, 4, 't', true, '');
+const mixed = usa([1, 4, 't', true, '']);
 const types = mixed.types(); // Expected: ["number", "number", "string", "boolean", "string"]
 ```
 
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
-const mixed = usa(1, 4, 't', true, '');
+const mixed = [1, 4, 't', true, ''];
 const types = mixed.types(); // Expected: ["number", "number", "string", "boolean", "string"]
 ```
 
@@ -1042,7 +1018,7 @@ const strArr = mixed.toStr(); // ['1','4','t','["nested",8]','{"foo":"bar"}','{"
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const mixed = [1, 4, 't', ['nested', 8], { foo: 'bar' }, { baz: false }, [1, 2, 3], true];
 const strArr = mixed.toStr(); // ['1','4','t','["nested",8]','{"foo":"bar"}','{"baz":false}','[1,2,3]','true']
@@ -1070,7 +1046,7 @@ usa(arr).toNum(); // Expected: [1, 4, 3.2, 7, 19, 0]
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const arr = ['1', 4, '3.2', '7', '19', 0];
 arr.toNum(); // Expected: [1, 4, 3.2, 7, 19, 0]
@@ -1094,7 +1070,7 @@ usa(arr).evenIndexes(); // Expected: ["foo", "baz"]
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const arr = ['foo', 'bar', 'baz', 'foobar'];
 arr.evenIndexes(); // Expected: ["foo", "baz"]
@@ -1118,7 +1094,7 @@ usa(arr).oddIndexes(); // Expected: ["bar", "foobar"]
 ###### Extending Prototype
 
 ```js
-require('unitedstatesofamerica').protos();
+require('unitedstatesofamerica').exposeProtos();
 
 const arr = ['foo', 'bar', 'baz', 'foobar'];
 arr.oddIndexes(); // Expected: ["bar", "foobar"]
@@ -1149,7 +1125,7 @@ usa(a3).assert(a4); // Expected: false
 ###### Extending Prototype
 
 ```js
-const usa = require('unitedstatesofamerica').protos();
+const usa = require('unitedstatesofamerica').exposeProtos();
 
 const a1 = [{ foo: 'bar', bar: 4, baz: false }, [4, 3, 2, 1], 'f', 0, true, 'i'];
 const a2 = [{ foo: 'bar', bar: 4, baz: false }, [4, 3, 2, 1], 'f', 0, true, 'i'];
@@ -1217,7 +1193,7 @@ const home = usa(houseAttributes).toObject();
 **Example 1: With Callback Function**
 
 ```js
-const usa = require('unitedstatesofamerica').protos();
+const usa = require('unitedstatesofamerica').exposeProtos();
 
 const data = [
   { id: 'abc123', score: 97 },
