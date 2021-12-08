@@ -125,6 +125,7 @@ console.log(sortedPassingGrades); // Expected: [100, 96, 92, 84, 80, 78, 76]
 
 - [Filter Type](#filter-type)
 - [Types](#types)
+- [To Array](#to-array)
 - [To Str](#to-str)
 - [To Num](#to-num)
 
@@ -996,6 +997,25 @@ require('unitedstatesofamerica').exposeProtos();
 
 const mixed = [1, 4, 't', true, ''];
 const types = mixed.types(); // Expected: ["number", "number", "string", "boolean", "string"]
+```
+
+### To Array
+
+`.toArray()` returns your ArrayUSA array as a standard JavaScript array;
+
+##### Examples
+
+###### Array USA Wrapper
+
+```js
+const usa = require('unitedstatesofamerica');
+
+const arr = [5, 1, 2, 2, 5, 3, 3, 4, 5];
+const noDuplicates = usa(arr)
+  .withoutDuplicates() // Remove duplicates
+  .toArray(); // Convert ArrayUSA array to a standard JavaScript array
+
+noDuplicates.shuffle(); // ❌ ArrayUSA methods no longer work
 ```
 
 ### To Str

@@ -2,52 +2,52 @@ declare module 'unitedstatesofamerica' {
   type JSTypes = 'string' | 'number' | 'boolean' | 'object' | 'function' | 'symbol' | 'undefined';
   type ArrayUSATypes = JSTypes & ('null' | 'array' | 'objectOnly');
 
-  type CallbackFn<ReturnType> = (value: any, index: number, array: any[]) => ReturnType;
+  type CallbackFn<ReturnType> = (value: any, index: number, array: ArrayUSA<any>) => ReturnType;
   type GenericObject = { [key: string]: any };
-  type ToObjectShape = { key: any; value: any };
+  type ToObjectShape = { key: string; value: any };
 
-  interface ArrayUSAMethods extends Array<any> {
+  interface ArrayUSA<ArrayItemsType> extends Array<ArrayItemsType> {
     ascending(): void;
     assert(comparedValue: any): boolean;
-    batch(size: number): any[][];
-    copy(): any[];
+    batch(size: number): ArrayUSA<any[]>;
+    copy(): ArrayUSA<any>;
     countIf(condition: CallbackFn<boolean>): number;
     countOf(value: any): number;
-    deepCopy(): any[];
+    deepCopy(): ArrayUSA<any>;
     descending(): void;
     difference(): number;
-    evenIndexes(): any[];
-    filterType(type: ArrayUSATypes): any[];
+    evenIndexes(): ArrayUSA<any>;
+    filterType(type: ArrayUSATypes): ArrayUSA<any>;
     isEmpty(): boolean;
     last(): any;
     mean(): number;
     median(): number;
     mode(): number;
-    oddIndexes(): any[];
-    onlyDuplicates(): any[];
+    oddIndexes(): ArrayUSA<any>;
+    onlyDuplicates(): ArrayUSA<any>;
     partialMatch(matchObj: GenericObject): any;
     partialMatchIndex(matchObj: GenericObject): number;
     product(): number;
     quotient(): number;
     random(): any;
     randomIndex(): number;
-    replace(oldVal: any, newVal: any): any[];
-    shuffle(): any[];
+    replace(oldVal: any, newVal: any): ArrayUSA<any>;
+    shuffle(): ArrayUSA<any>;
     sum(): number;
     toNum(): number;
-    toObject(callback: CallbackFn<ToObjectShape>): any[];
-    toStr(): string[];
+    toObject(callback: CallbackFn<ToObjectShape>): GenericObject;
+    toStr(): ArrayUSA<string>;
     types(): JSTypes;
-    withoutDuplicates(): any[];
-    withoutFalseyValues(): any[];
-    withoutNullValues(): any[];
+    withoutDuplicates(): ArrayUSA<any>;
+    withoutFalseyValues(): ArrayUSA<any>;
+    withoutNullValues(): ArrayUSA<any>;
   }
 
-  const arrayUSACaller: {
-    (arr: any[]): ArrayUSAMethods;
+  const arrayUSA: {
+    (arr: any[]): ArrayUSA<any>;
     exposeProtos(): void;
-    withLength: (length: number) => ArrayUSAMethods;
+    withLength: (length: number) => ArrayUSA<any>;
   };
 
-  export = arrayUSACaller;
+  export = arrayUSA;
 }

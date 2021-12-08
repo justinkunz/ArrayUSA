@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const methods = require('../src/methods');
+const methods = require('../lib/methods');
 
-const targetPath = path.join('src', 'index.template.js');
-const destPath = path.join('src', 'index.js');
+const targetPath = path.join('lib', 'index.template.js');
+const destPath = path.join('lib', 'index.js');
 
 const template = fs.readFileSync(targetPath, 'utf-8');
 
