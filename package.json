@@ -1,0 +1,29 @@
+{
+  "name": "unitedstatesofamerica",
+  "version": "0.1.0",
+  "description": "Extend array methods with the power of the USA",
+  "main": "src/index.js",
+  "types": "types.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justinkunz/ArrayUSA"
+  },
+  "scripts": {
+    "sync": "node scripts/syncMethods.js",
+    "buildTests": "node scripts/buildTests.js"
+  },
+  "keywords": [
+    "array",
+    "prototypes",
+    "array methods",
+    "usa",
+    "united states of america",
+    "united states"
+  ],
+  "author": "Justin Kunz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justinkunz/ArrayUSA/issues"
+  },
+  "homepage": "https://github.com/justinkunz/ArrayUSA#readme"
+}
