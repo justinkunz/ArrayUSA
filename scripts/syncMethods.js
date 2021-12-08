@@ -11,7 +11,7 @@ const changed = template
   .replace(
     '// ARRAYUSA_PROTOS',
     Object.keys(methods)
-      .map((method) => `ArrayFriend.prototype.${method} = methods.${method};`)
+      .map((method) => `ArrayUSA.prototype.${method} = methods.${method};`)
       .join('\n')
   )
   .replace(
