@@ -1,6 +1,6 @@
 {
   "name": "unitedstatesofamerica",
-  "version": "0.3.2",
+  "version": "1.0.0",
   "description": "Extend array methods with the power of the USA",
   "main": "lib/index.js",
   "types": "types.d.ts",

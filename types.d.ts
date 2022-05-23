@@ -16,6 +16,7 @@ declare module 'unitedstatesofamerica' {
     deepCopy(): ArrayUSA<any>;
     descending(): void;
     difference(): number;
+    duplicates(): ArrayUSA<any>;
     evenIndexes(): ArrayUSA<any>;
     filterType(type: ArrayUSATypes): ArrayUSA<any>;
     isEmpty(): boolean;
@@ -24,7 +25,6 @@ declare module 'unitedstatesofamerica' {
     median(): number;
     mode(): number;
     oddIndexes(): ArrayUSA<any>;
-    onlyDuplicates(): ArrayUSA<any>;
     partialMatch(matchObj: GenericObject): any;
     partialMatchIndex(matchObj: GenericObject): number;
     product(): number;
@@ -41,7 +41,7 @@ declare module 'unitedstatesofamerica' {
     types(): JSTypes;
     withoutDuplicates(): ArrayUSA<any>;
     withoutFalseyValues(): ArrayUSA<any>;
-    withoutNullValues(): ArrayUSA<any>;
+    withoutNullishValues(): ArrayUSA<any>;
   }
 
   const arrayUSA: {

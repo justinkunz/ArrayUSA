@@ -83,7 +83,7 @@ console.log(sortedPassingGrades); // Expected: [100, 96, 92, 84, 80, 78, 76]
 ##### Duplicate Management 🇺🇸
 
 - [Without Duplicates](#without-duplicates)
-- [Only Duplicates](#only-duplicates)
+- [Duplicates](#duplicates)
 
 ##### Copies 🇺🇸
 
@@ -193,9 +193,9 @@ const users = ['Justin', 'Justin', 'Jack', 'Amanda', 'Mary', 'Amanda'];
 const uniqueUsers = users.withoutDuplicates(); // Expected: ["Justin", "Jack", "Amanda", "Mary"]
 ```
 
-### Only Duplicates
+### Duplicates
 
-`.onlyDuplicates()` filters an array to include only items whose values appear more than once in the array.
+`.duplicates()` filters an array to include only items whose values appear more than once in the array.
 
 ##### Example
 
@@ -205,7 +205,7 @@ const uniqueUsers = users.withoutDuplicates(); // Expected: ["Justin", "Jack", "
 const usa = require('unitedstatesofamerica');
 
 const logins = usa(['Justin', 'Justin', 'Jack', 'Amanda', 'Mary', 'Amanda']);
-const duplicateLogins = logins.onlyDuplicates(); // Expected: ["Justin", "Amanda"]
+const duplicateLogins = logins.duplicates(); // Expected: ["Justin", "Amanda"]
 ```
 
 ###### Extending Prototype
@@ -214,7 +214,7 @@ const duplicateLogins = logins.onlyDuplicates(); // Expected: ["Justin", "Amanda
 require('unitedstatesofamerica').exposeProtos();
 
 const logins = ['Justin', 'Justin', 'Jack', 'Amanda', 'Mary', 'Amanda'];
-const duplicateLogins = logins.onlyDuplicates(); // Expected: ["Justin", "Amanda"]
+const duplicateLogins = logins.duplicates(); // Expected: ["Justin", "Amanda"]
 ```
 
 ### Batch
@@ -672,9 +672,9 @@ const users = [
 const person = users.partialMatchIndex({ email: 'jdoe@ymail.com' }); // Expected: 1
 ```
 
-### Without Null Values
+### Without Nullish Values
 
-`.withoutNullValues()` will return a new array without `null`, `undefined`, empty string values from the array. _Note: This does not remove any `false` or `NaN` values_
+`.withoutNullishValues()` will return a new array without nullish values (`null` and `undefined`)
 
 ##### Examples
 
@@ -685,7 +685,7 @@ const usa = require('unitedstatesofamerica');
 
 const arr1 = [3, 4, 'foo', 'bar', null, 'baz', false, 'foobar', NaN, undefined, ''];
 
-const cleaned = usa(arr1).withoutNullValues(); // Expected: [ 3, 4, 'foo', 'bar', 'baz', false, 'foobar', NaN ]
+const cleaned = usa(arr1).withoutNullishValues(); // Expected: [ 3, 4, 'foo', 'bar', 'baz', false, 'foobar', NaN ]
 ```
 
 ###### Extending Prototype
@@ -695,7 +695,7 @@ require('unitedstatesofamerica').exposeProtos();
 
 const arr1 = [3, 4, 'foo', 'bar', null, 'baz', false, 'foobar', NaN, undefined, ''];
 
-const cleaned = arr1.withoutNullValues(); // Expected: [ 3, 4, 'foo', 'bar', 'baz', false, 'foobar', NaN ]
+const cleaned = arr1.withoutNullishValues(); // Expected: [ 3, 4, 'foo', 'bar', 'baz', false, 'foobar', NaN ]
 ```
 
 ### Without Falsy Values
